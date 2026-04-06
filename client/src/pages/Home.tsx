@@ -8,10 +8,15 @@ import { useNavigate } from "react-router-dom";
 const Home: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [viewAll, setViewAll] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const fetchTasks = () => {
-    getTasks().then(res => setTasks(res.data));
+    setLoading(true);
+    getTasks().then(res => {
+      setTasks(res.data);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -64,8 +69,12 @@ const Home: React.FC = () => {
                 </button>
               </div>
             )) : (
-               <div className="no-tasks-container">
-              <p className="no-tasks">No tasks available. Add a new task to get started!</p>
+              <div className="no-tasks-container">
+                  {loading ? (
+                    <p className="no-tasks">Loading tasks...</p>
+                  ) : (
+                    <p className="no-tasks">No tasks available. Add a new task to get started!</p>
+                  )}
               </div>
             )}
           </div>

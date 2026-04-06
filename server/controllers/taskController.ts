@@ -1,4 +1,6 @@
-import db from "../db/dbConfig.ts";
+import db from "../db/dbConfig.js";
+import { Request, Response } from "express";
+import { TaskBody } from "../models/Tasks.js";
 
 
 export const getTasks = async (

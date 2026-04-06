@@ -1,20 +1,10 @@
 import mysql from 'mysql2/promise';
 
-const dbConfig = {
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'Password',
-  database: process.env.DB_NAME || 'todo',
-  port: process.env.DB_PORT || 3306,
-};  
+const pool = mysql.createPool({
+  host: process.env.DB_HOST as string,
+  user: process.env.DB_USER as string,
+  password: process.env.DB_PASSWORD as string,
+  database: process.env.DB_NAME as string
+});
 
-
-const db = mysql.createPool(dbConfig);
-
-if(db) {
-  console.log("Database connection pool created successfully");
-} else {
-  console.error("Failed to create database connection pool");
-}
-
-export default db;
+export default pool;

@@ -2,8 +2,11 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "ES2020",
-    "module": "CommonJS",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "strict": true
-  }
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["index.ts"]
 }

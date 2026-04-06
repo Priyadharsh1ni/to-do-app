@@ -1,9 +1,10 @@
-interface TaskParams {
+export interface TaskParams {
   id: string;
 }
 
-interface TaskBody {
+export interface TaskBody {
   title: string;
   description?: string;
   completed?: boolean;
+  status?: number;
 }

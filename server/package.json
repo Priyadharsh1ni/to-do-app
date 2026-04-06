@@ -16,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": "18.x"
+  },
   "bugs": {
     "url": "https://github.com/Priyadharsh1ni/to-do-app/issues"
   },

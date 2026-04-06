@@ -11,7 +11,9 @@ export const getTasks = async (
     const [rows] = await db.query(
       "SELECT * FROM tasks ORDER BY created_at DESC"
     );
+    console.log(rows);
     res.json(rows);
+
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch tasks" });
   }
